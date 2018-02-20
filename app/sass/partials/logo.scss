@@ -1,0 +1,35 @@
+
+#sgf-logo{
+	position: fixed;
+    top: 1%;
+    margin-left: 136px;
+    width: 12% !important;
+    z-index: 100;
+    
+}
+#sgf-logo img{
+		width:15% !important;
+		margin-left:0px !important;
+	    margin-top: 25px;
+	}
+@media(max-width:959px){
+	#sgf-logo{
+		position: absolute;
+		top: -25%;
+		margin-left: 5%;
+		width: 16%;
+		z-index: 100;
+    
+	}
+}
+@media(max-width:959px){
+	#sgf-logo{
+		position: absolute;
+		top: -25%;
+		margin-left: 5%;
+		width: 22% !important;
+		z-index: 100;
+    
+	}
+}
+   

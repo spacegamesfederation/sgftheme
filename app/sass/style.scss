@@ -1,0 +1,149 @@
+/*
+Theme Name: The Keynote
+Theme URI: http://themes.goodlayers.com/thekeynote
+Description: The Keynote Wordpress Theme
+Author: Goodlayers
+Author URI: http://www.goodlayers.com
+Version: 1.07
+License: 
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: white, light, yellow, two-columns, fluid-layout, custom-background, custom-colors, featured-images, theme-options
+Text Domain: gdlr_translate
+
+
+
+*/
+
+/*
+
+  Note to SGF Theme Developers.
+  This Keynote theme was modified for temporary purposes as triage on shot deadline. 
+
+  It was later then broken down into SASS files, but not all CSS has been formatted in SASS.
+  If you have any questions, contact Ben Erwin: powersimple@gmail.com
+
+*/
+
+
+
+@charset "UTF-8";
+@mixin font-smoothing($value: antialiased) {
+  @if $value == antialiased {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  @else {
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+@import "partials/reset"; /*the reset from the original template*/
+
+@import "partials/template"; /*the original css from the keynote theme*/
+
+@import "partials/header";
+@import "partials/logo";
+
+@import "partials/slick";
+@import "partials/entry-form";
+@import "partials/team";
+
+@import "partials/social";
+@import "partials/video";
+
+
+
+@import "partials/footer";
+/*ADDITIONAL OVERRIDES*/
+
+
+h1{
+  font-size:2vw;
+}
+h2{
+  text-align:center;
+  color:#999 !important;
+  font-size:1.5vw;
+}
+h3{
+  color: #ccc !important;
+  font-size:1.25vw;
+}
+h1{
+  font-size:2vw;
+}
+h2{
+  text-align:center;
+  color:#999 !important;
+  font-size:1.5vw;
+}
+h4{
+  color: #ccc !important;
+  font-size:1.25vw;
+}
+p{
+  color: #fff !important;
+  font-size:1vw !important; 
+}
+#about{
+  background:url(/wp-content/uploads/astrobackground-3.png) center center no-repeat;
+  background-size:contain;
+  
+  
+}
+
+
+h1{
+  color:#999!important;
+  text-align: center;
+    position: relative;
+    margin-bottom: 1em;
+  text-transform: capitalize;
+}
+  
+
+
+
+nav ul li{
+  font-size:1.2em !important;
+}
+
+@media(min-width:768px) and (max-width:1200px) {
+  #video-subnav ul li{
+    font-size:1.1em !important;
+  }
+}
+
+
+
+.ctf-tweet-text{
+  font-size:12px !important;  
+}
+
+
+img.pr{
+  width:38%;
+  height:auto;
+}
+@media (max-width:959px) {
+  img.pr{
+  width:61%;
+  height:auto;
+}
+}
+
+/*stars are backed out*/
+#stars {
+    height: 100%;
+    position: absolute;
+    margin-top: 12.5%;
+    background: #000;
+    width: 100%;
+}
+
+#stars canvas {
+    position: absolute;
+    height: 100% !important;
+}
+
