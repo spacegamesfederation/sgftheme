@@ -1,7 +1,7 @@
 var gotoslide = function(slide) {
     $('.slideshow').slickGoTo(parseInt(slide));
     console.log(slide);
-}
+};
 jQuery(document).ready(function() {
     resetStarCanvas();
     jQuery('.slideshow').slick({

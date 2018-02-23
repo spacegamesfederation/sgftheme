@@ -365,13 +365,13 @@ add_filter( 'rwmb_meta_boxes', 'featured_video_meta_box' );
 	wp_enqueue_style( 'slickcss', 'https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css', array ( 'jquery' ), 1.1, true);
 //	wp_enqueue_script('threejs','https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js',false,'1.1','all');
 //	wp_enqueue_script('stars', get_template_directory_uri() . '/app/js/starfield.js',false,'1.1',true);
-    wp_enqueue_script('app', get_template_directory_uri() . '/app/js/app.js',false,'1.1',true);
+    //wp_enqueue_script('app', get_template_directory_uri() . '/app/js/custom/app.js',false,'1.1',true);
 	if($post->ID == "4020"){
 //		wp_enqueue_script('entryForm', get_template_directory_uri() . '/app/js/entryform.js',false,'1.1',true);
-		wp_enqueue_script('countable', get_template_directory_uri() . '/app/js/countable.min.js',false,'1.1',true);
+		wp_enqueue_script('countable', get_template_directory_uri() . '/app/js/custom/countable.min.js',false,'1.1',true);
 	}
 	if(print $post->ID == "4649"){
-		wp_enqueue_script('tv_carousel', get_template_directory_uri() . '/app/js/tv-carousel.js',false,'1.1',true);
+		wp_enqueue_script('tv_carousel', get_template_directory_uri() . '/app/js/custom/tv-carousel.js',false,'1.1',true);
 	}
 if(print $post->ID == "4757"){
 		wp_enqueue_script('jquery-ui-sortable', get_template_directory_uri() . 'https://code.jquery.com/ui/1.12.1/jquery-ui.js',false,'1.1',true);

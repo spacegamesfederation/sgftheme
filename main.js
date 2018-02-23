@@ -875,3 +875,157 @@ var countries = [
     { name: 'Zambia', code: 'ZM' },
     { name: 'Zimbabwe', code: 'ZW' }
 ];
+ //Declare three.js variables
+	var camera, scene, renderer, stars=[];
+	 
+	//assign three.js objects to each variable
+	function init(){
+		 
+		//camera
+		camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 1, 1000);
+		camera.position.z = 5;	 
+
+		//scene
+		scene = new THREE.Scene();
+		 
+		//renderer
+		renderer = new THREE.WebGLRenderer();
+		//set the size of the renderer
+		renderer.setSize( window.innerWidth, window.innerHeight );
+		 
+		//add the renderer to the html document body
+		jQuery("#stars").append( renderer.domElement );
+	}
+
+
+	function addSphere(){
+
+				// The loop will move from z position of -1000 to z position 1000, adding a random particle at each position. 
+				for ( var z= -1000; z < 1000; z+=20 ) {
+		
+					// Make a sphere (exactly the same as before). 
+					var geometry   = new THREE.SphereGeometry(0.5, 32, 32);
+					var material = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+					var sphere = new THREE.Mesh(geometry, material);
+		
+					// This time we give the sphere random x and y positions between -500 and 500
+					sphere.position.x = Math.random() * 1000 - 500;
+					sphere.position.y = Math.random() * 1000 - 500;
+		
+					// Then set the z position to where it is in the loop (distance of camera)
+					sphere.position.z = z;
+		
+					// scale it up a bit
+					sphere.scale.x = sphere.scale.y = 2;
+		
+					//add the sphere to the scene
+					scene.add( sphere );
+		
+					//finally push it to the stars array 
+					stars.push(sphere); 
+				}
+	}
+
+	function animateStars() { 
+				
+		// loop through each star
+		for(var i=0; i<stars.length; i++) {
+			
+			star = stars[i]; 
+				
+			// and move it forward dependent on the mouseY position. 
+			star.position.z +=  i/10;
+				
+			// if the particle is too close move it to the back
+			if(star.position.z>1000) star.position.z-=2000; 
+			
+		}
+	
+	}
+
+	function render() {
+		//get the frame
+		requestAnimationFrame( render );
+
+		//render the scene
+		renderer.render( scene, camera );
+			animateStars();
+
+	}
+	
+	init();
+	addSphere();
+	render();
+		
+var gotoslide = function(slide) {
+    $('.slideshow').slickGoTo(parseInt(slide));
+    console.log(slide);
+};
+jQuery(document).ready(function() {
+    resetStarCanvas();
+    jQuery('.slideshow').slick({
+        //	autoplay: true,
+        dots: true,
+        arrows: true,
+        infinite: true,
+        speed: 1500,
+        fade: true,
+        cssEase: 'linear',
+        focusoOnSelect: true,
+        nextArrow: '<i class="slick-arrow slick-next"></i>',
+        prevArrow: '<i class="slick-arrow slick-prev"></i>',
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    infinite: true,
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+            // You can unslick at a given breakpoint now by adding:
+            // settings: "unslick"
+            // instead of a settings object
+        ]
+    });
+    jQuery(".slideshow").css("display", "block");
+});
+jQuery("#video-subnav ul li:first-child a").addClass("selected-channel");
+
+var $carousel = jQuery('.slideshow');
+jQuery(document).on('keydown', function(e) {
+    if (e.keyCode == 37) {
+        $carousel.slick('slickPrev');
+    }
+    if (e.keyCode == 39) {
+        $carousel.slick('slickNext');
+    }
+    var slideno = jQuery(this).data('slide');
+});
+
+jQuery('a[data-slide]').click(function(e) {
+    jQuery("#video-subnav ul li a").removeClass("selected-channel");
+    jQuery(this).addClass("selected-channel");
+    var slideno = jQuery(this).data('slide');
+    console.log(slideno);
+    $carousel.slick('slickGoTo', slideno);
+
+});
+
+
+jQuery('.slideshow').on('afterChange', function(event, slick, currentSlide, nextSlide) {
+    console.log(currentSlide);
+});

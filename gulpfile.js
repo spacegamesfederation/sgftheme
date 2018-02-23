@@ -22,7 +22,7 @@ gulp.task('styles', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(cssnano())
     .pipe(gulp.dest('./'))
-    .pipe(notify({ message: 'Styles task complete' }))
+    .pipe(notify({ message: 'Style Compiled, now smile' }))
     .pipe(browserSync.stream());
 });
 
@@ -36,7 +36,7 @@ gulp.task('scripts_custom', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
-    .pipe(notify({ message: 'Scripts task complete' }))
+    .pipe(notify({ message: 'Custom JS task complete' }))
     .pipe(browserSync.stream());
 });
 
@@ -49,22 +49,11 @@ gulp.task('scripts_vendor', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
-    .pipe(notify({ message: 'Scripts task complete' }))
+    .pipe(notify({ message: 'vendor JS compiled and minified' }))
     .pipe(browserSync.stream());
 });
 
-gulp.task('scripts_vendor', function() {
-  return gulp.src('app/js/vendor/**/*.js')
-   // .pipe(jshint())
-   // .pipe(jshint.reporter('default'))
-    .pipe(concat('vendor.js'))
-    .pipe(gulp.dest('./'))
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(uglify())
-    .pipe(gulp.dest('./'))
-    .pipe(notify({ message: 'Scripts task complete' }))
-    .pipe(browserSync.stream());
-});
+
 
 // Images
 gulp.task('images', function() {
@@ -94,7 +83,7 @@ gulp.task('watch', function() {
   gulp.watch('app/sass/**/*.scss', ['styles']);
 
   // Watch .js files
-  gulp.watch('app/js/**/*.js', ['scripts_custom']);
+  gulp.watch('app/js/custom/**/*.js', ['scripts_custom']);
 
    
   gulp.watch('**/*.php').on('change', function () {
