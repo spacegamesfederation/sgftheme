@@ -11,13 +11,20 @@ var gulp = require('gulp'),
     concat = require('gulp-concat'),
     notify = require('gulp-notify'),
     cache = require('gulp-cache'),
+    sourcemaps = require('gulp-sourcemaps'),
+    identityMap = require('@gulp-sourcemaps/identity-map'),
+
     browserSync = require('browser-sync').create(),
     del = require('del');
 
 // Styles
 gulp.task('styles', function() {
   return sass('app/sass/**/*.scss', { style: 'expanded' })
+
     .pipe(autoprefixer('last 2 version'))
+    .pipe(sourcemaps.init())
+    .pipe(identityMap()) // .js and .css files will get a generated sourcemap
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cssnano())
@@ -36,7 +43,7 @@ gulp.task('scripts_custom', function() {
     .pipe(rename({ suffix: '.min' }))
     .pipe(uglify())
     .pipe(gulp.dest('./'))
-    .pipe(notify({ message: 'Custom JS task complete' }))
+    .pipe(notify({ message: 'Custom JS Compiled and delinted' }))
     .pipe(browserSync.stream());
 });
 

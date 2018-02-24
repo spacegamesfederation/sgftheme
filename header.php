@@ -39,7 +39,6 @@
 
 	
 	
-	
  <!-- Facebook Open Graph -->
   <meta property="og:site_name" content="Space Games Federation"/>
   <meta property="og:title" content="<?=yoastVariableToTitle($post->ID); ?>"/>

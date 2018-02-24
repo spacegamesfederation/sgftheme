@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/spacegamesfederation/sgftheme#readme",
   "devDependencies": {
+    "@gulp-sourcemaps/identity-map": "github:gulp-sourcemaps/identity-map",
     "browser-sync": "^2.23.5",
     "del": "^3.0.0",
     "gulp": "^3.9.1",
@@ -36,6 +37,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-ruby-sass": "^3.0.0",
     "gulp-sass": "^3.1.0",
+    "gulp-sourcemaps": "^2.6.4",
     "gulp-uglify": "^3.0.0",
     "jshint": "^2.9.5"
   }

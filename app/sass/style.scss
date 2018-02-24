@@ -24,8 +24,6 @@ Text Domain: gdlr_translate
 
 */
 
-
-
 @charset "UTF-8";
 @mixin font-smoothing($value: antialiased) {
   @if $value == antialiased {
@@ -44,18 +42,18 @@ Text Domain: gdlr_translate
 
 @import "partials/header";
 @import "partials/logo";
-
+@import "partials/video";
 @import "partials/slick";
 @import "partials/entry-form";
 @import "partials/team";
 
 @import "partials/social";
-@import "partials/video";
-
+@import "partials/mailchimp";
 
 
 @import "partials/footer";
 /*ADDITIONAL OVERRIDES*/
+
 
 
 h1{
@@ -82,7 +80,7 @@ h4{
   color: #ccc !important;
   font-size:1.25vw;
 }
-p{
+p, li{
   color: #fff !important;
   font-size:1vw !important; 
 }
@@ -90,10 +88,10 @@ p{
   background:url(/wp-content/uploads/astrobackground-3.png) center center no-repeat;
   background-size:contain;
   
-  
 }
-
-
+.slide-wrap{
+  opacity: 0.9;
+} 
 h1{
   color:#999!important;
   text-align: center;
@@ -101,49 +99,60 @@ h1{
     margin-bottom: 1em;
   text-transform: capitalize;
 }
+h6{
+  color:#ccc !important;
+} 
+/*shopping cart hacks*/
+.price, .label, .amount, .shop_table td, .shop_table td a, .shop_table th  {
+  color:#fff !important;
+  font-size:110%;
+}
+.sku_wrapper {
+  color:#fff !important;
+}
+#asseenon .gdlr-item p{
+  padding:10%;
+  font-size: 110% !important;
+  text-align: center
+}
+#asseenon .gdlr-item img{
+  border-radius:15px;
+  text-align:center;
+  width: 50%;
+  margin: 0 auto;
+  display: block;
+  background-color: #fff;
+}
+span.source a{
+  font-weight: bold;
+}
+span.source img{
+  display: block;
+  max-height: 50px;
+}
+
+.name-input span:first-child{
+    margin-right: 3%;     
   
-
-
-
-nav ul li{
-  font-size:1.2em !important;
 }
-
-@media(min-width:768px) and (max-width:1200px) {
-  #video-subnav ul li{
-    font-size:1.1em !important;
-  }
+.entry h3, .entry h4, .entry li, .entry li{
+  color:#000 !important;
 }
-
-
-
-.ctf-tweet-text{
-  font-size:12px !important;  
+#entry{
+  padding-left:30px;
+  color:#fff !important;
 }
-
-
-img.pr{
-  width:38%;
-  height:auto;
+#sortable li{
+  cursor:move;
 }
-@media (max-width:959px) {
-  img.pr{
-  width:61%;
-  height:auto;
+#sortable li a{
+  cursor:pointer;
+  padding:3px;
 }
+.wpcf7 input[type="submit"]{
+  background-color:#333;
 }
-
-/*stars are backed out*/
-#stars {
-    height: 100%;
-    position: absolute;
-    margin-top: 12.5%;
-    background: #000;
-    width: 100%;
+.gdlr-button, input[type="button"], input[type="submit"]{
+  background-color:#666 !important; 
+  border-radius:50px;
 }
-
-#stars canvas {
-    position: absolute;
-    height: 100% !important;
-}
-
