@@ -24,7 +24,7 @@ gulp.task('styles', function() {
     .pipe(autoprefixer('last 2 version'))
     .pipe(sourcemaps.init())
     .pipe(identityMap()) // .js and .css files will get a generated sourcemap
-    .pipe(sourcemaps.write())
+  .pipe(sourcemaps.write())
     .pipe(gulp.dest('./'))
     .pipe(rename({ suffix: '.min' }))
     .pipe(cssnano())

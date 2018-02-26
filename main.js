@@ -31,25 +31,37 @@ jQuery("#sortable").on("sortstop", function(event, ui) {
 
     var counter = 1;
     var ranking = '\n';
+    var vote_data = [];
+
     jQuery("#sortable li").each(function(li, i) {
         var entry = jQuery(this).attr("title");
-        var id = jQuery(this).attr('id');
-        console.log(id);
+        var id = jQuery(this).data('id');
+        //console.log(id);
+        
+        var data_set = {"id":id,"name":entry,"points":0};//makes object
+        vote_data.push(data_set);//makes array
+
         jQuery('#' + id + " span.rank").html(counter + ". ");
         ranking += counter + "." + entry + "\n";
 
         counter++;
-
+        points--;
     });
+    //set points to length of array
+    var points = vote_data.length;
+
+    for(var i=0;i<vote_data.length;i++){
+        vote_data[i].points = points; //set points value to current points value;
+        points--; //decrement the points for each iteration 
+    }
+    //console.log(vote_data);
 
 
 
-
-
-    console.log(ranking);
-
-    jQuery('#vote_rank').val(ranking);
-
+    //console.log(ranking);
+    //this is where the new vote ranking gets pushed into the center field.
+    jQuery('#vote_rank').val(ranking);//human readable
+    jQuery('#vote_data').val(encodeURIComponent(JSON.stringify(vote_data)));//encode json packet stored in hidden form var
 
 
 });
@@ -176,11 +188,18 @@ jQuery("#step-team").on("click", function() {
     $carousel.slick('slickNext');
 
 });
+var wpcf7Elm = document.querySelector( '.wpcf7' );
+if(wpcf7Elm != undefined){
+wpcf7Elm.addEventListener( 'wpcf7submit', function( event ) {
+    console.log("save",validation);
+}, false );
+}
 
 function previewEntry() {
 
     var v = validation;
-    //console.log("preview",v);
+
+    console.log("preview",v);
     jQuery("#entry-name").html("<strong>Game Name:</strong> " + v.game_name);
     jQuery("#entry-description").html("<strong>Game Descripton:</strong> " + v.game_desc);
     jQuery("#entry-video-url").html(v.video_url);

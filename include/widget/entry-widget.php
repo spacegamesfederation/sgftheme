@@ -1,11 +1,7 @@
 <?php
 /**
  * Plugin Name: Entries Widget
- * Plugin URI: http://goodlayers.com/
- * Description: A widget that show flickr image.
- * Version: 1.0
  * Author: Goodlayers
- * Author URI: http://www.goodlayers.com
  *
  */
 
@@ -48,10 +44,10 @@ if( !class_exists('Entries_Widget') ){
 			
 					global $wpdb;
 		
-		$post_db = $wpdb->prefix."posts";
-	
-		$sql = "select ID, post_title, post_content, post_excerpt, post_date from $post_db where post_status = 'publish' and post_type = 'entry' order by post_date";
-		$Entries = $wpdb->get_results($sql);
+					$post_db = $wpdb->prefix."posts";
+				
+					$sql = "select ID, post_title, post_content, post_excerpt, post_date from $post_db where post_status = 'publish' and post_type = 'entry' order by post_date";
+					$Entries = $wpdb->get_results($sql);
 	
 			
 			
@@ -64,6 +60,7 @@ if( !class_exists('Entries_Widget') ){
 				Highest = Best</h6>
 				<div class="clear"></div>
 				<ul id="sortable">
+			
 					<?php 
 			
 				
@@ -71,8 +68,11 @@ if( !class_exists('Entries_Widget') ){
 			foreach($Entries as $key => $Entry){
 				extract((array) $Entry);
 				
+
+
+
 				?>
-					<li title="<?=$post_title?>" id="label<?=$ID?>">
+					<li title="<?=$post_title?>" id="label<?=$ID?>" data-id="<?=$ID?>">
 						<span class="rank"></span>
 						<!--<input type="radio" name="vote" value="<?=$post_title?>">-->
 						
@@ -82,6 +82,7 @@ if( !class_exists('Entries_Widget') ){
 					</li>
 					
 				<?php
+				//die();
 					$counter++;
 			}
 				?>
