@@ -199,7 +199,7 @@ function previewEntry() {
 
     var v = validation;
 
-    console.log("preview",v);
+    //console.log("preview",v);
     jQuery("#entry-name").html("<strong>Game Name:</strong> " + v.game_name);
     jQuery("#entry-description").html("<strong>Game Descripton:</strong> " + v.game_desc);
     jQuery("#entry-video-url").html(v.video_url);
@@ -210,7 +210,7 @@ function previewEntry() {
     team_list = "<ul>";
 
     if (team.length > 0) {
-        //console.log("add another member");
+       // console.log("add another member");
         for (var m = 0; m < team.length; m++) {
             var minor = '';
             if (isMinor == true) {
@@ -230,7 +230,7 @@ function previewEntry() {
 
     }
     team_list += "</ul>";
-    //console.log(team_list);
+    
     jQuery("#entry-team-list").html(team_list);
 
 }
@@ -319,7 +319,7 @@ function addMember(member) {
     //console.log("add member");
     if (member != undefined) {
         var team = validation.team;
-        console.log(validation.team);
+        
         var adults = 0;
         if (team.length > 0) {
 
@@ -336,28 +336,30 @@ function addMember(member) {
                     if (m == 3 && adults == 0 && member.isMinor == false) {
                         //console.log("fifth member is not an adult");
                         jQuery("#adult-supervision").html("At least one member of your team must be over 18");
-                        validation.team.push(member);
+                        validation.team.push(member);console.log("push1");
                     }
                     if (m == 3 && adults == 0 && member.isMinor == true) {
                         //  console.log("can't add fifth minor");
 
                         jQuery("#adult-supervision").html("At least one member of your team must be over 18");
-                        validation.team.push(member);
+                        validation.team.push(member);console.log("push2");
                     }
                     if (adults == 1 && m < 3) {
-                        validation.team.push(member);
+                     
                     }
                 }
 
             }
-
+             if (adults == 1 && team.length < 5) {
+                  clearMemberForm();
+                        validation.team.push(member);
+                }
 
 
         } else {
             //console.log("add first member");
 
             validation.team.push(member);
-
             jQuery("#step-team").addClass("next-active");
             clearMemberForm();
         }
@@ -365,6 +367,7 @@ function addMember(member) {
         displayTeam();
         jQuery("#box_contact").addClass("complete");
     }
+ //   console.log("team", validation.team);
 
 }
 
@@ -454,8 +457,7 @@ function validateMember(action) {
     switch (action) {
 
         case "add":
-            addMember(member);
-            previewEntry();
+            addMember(member); 
             break;
         case "update":
             updateMember(member);
@@ -952,10 +954,10 @@ jQuery("#video-subnav ul li:first-child a").addClass("selected-channel");
 var $carousel = jQuery('.slideshow');
 jQuery(document).on('keydown', function(e) {
     if (e.keyCode == 37) {
-        $carousel.slick('slickPrev');
+        //$carousel.slick('slickPrev');
     }
     if (e.keyCode == 39) {
-        $carousel.slick('slickNext');
+   //     $carousel.slick('slickNext');
     }
     var slideno = jQuery(this).data('slide');
 });
@@ -964,7 +966,7 @@ jQuery('a[data-slide]').click(function(e) {
     jQuery("#video-subnav ul li a").removeClass("selected-channel");
     jQuery(this).addClass("selected-channel");
     var slideno = jQuery(this).data('slide');
-    console.log(slideno);
+    //console.log(slideno);
     $carousel.slick('slickGoTo', slideno);
 
 });

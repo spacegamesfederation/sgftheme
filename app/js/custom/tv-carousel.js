@@ -49,10 +49,10 @@ jQuery("#video-subnav ul li:first-child a").addClass("selected-channel");
 var $carousel = jQuery('.slideshow');
 jQuery(document).on('keydown', function(e) {
     if (e.keyCode == 37) {
-        $carousel.slick('slickPrev');
+        //$carousel.slick('slickPrev');
     }
     if (e.keyCode == 39) {
-        $carousel.slick('slickNext');
+   //     $carousel.slick('slickNext');
     }
     var slideno = jQuery(this).data('slide');
 });
@@ -61,7 +61,7 @@ jQuery('a[data-slide]').click(function(e) {
     jQuery("#video-subnav ul li a").removeClass("selected-channel");
     jQuery(this).addClass("selected-channel");
     var slideno = jQuery(this).data('slide');
-    console.log(slideno);
+    //console.log(slideno);
     $carousel.slick('slickGoTo', slideno);
 
 });

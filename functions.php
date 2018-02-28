@@ -353,6 +353,7 @@ add_filter( 'rwmb_meta_boxes', 'featured_video_meta_box' );
 
 
 
+add_filter( 'rwmb_meta_boxes', 'challenge_meta_box' );
 
 
 

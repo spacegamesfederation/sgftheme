@@ -58,31 +58,39 @@ Text Domain: gdlr_translate
 
 h1{
   font-size:2vw;
+  @media(min-width:1921px){
+     font-size:2em;
+  }
 }
 h2{
   text-align:center;
   color:#999 !important;
   font-size:1.5vw;
+  @media(min-width:1921px){
+     font-size:1.5em;
+  }
 }
 h3{
   color: #ccc !important;
   font-size:1.25vw;
+  @media(min-width:1921px){
+     font-size:1.25em;
+  }
 }
-h1{
-  font-size:2vw;
-}
-h2{
-  text-align:center;
-  color:#999 !important;
-  font-size:1.5vw;
-}
+
 h4{
   color: #ccc !important;
-  font-size:1.25vw;
+  font-size:1.2vw;
+  @media(min-width:1921px){
+     font-size:1.2em;
+  }
 }
 p, li{
   color: #fff !important;
-  font-size:1vw !important; 
+  font-size:1vw; 
+  @media(min-width:1921px){
+     font-size:1em;
+  }
 }
 #about{
   background:url(/wp-content/uploads/astrobackground-3.png) center center no-repeat;
