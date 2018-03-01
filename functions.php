@@ -132,7 +132,10 @@
 
 
 /* BELOW HERE IS CUSTOM CODE ADDED TO THE KEYNOTE THEME*/
+	
 	wp_enqueue_script('threejs','https://cdnjs.cloudflare.com/ajax/libs/three.js/r71/three.min.js',false,'1.1',false);
+
+
 	wp_enqueue_script('main', get_stylesheet_directory_uri() . '/main.js',false,'1.1',"all");
 
 
@@ -349,11 +352,17 @@ add_filter( 'rwmb_meta_boxes', 'featured_video_meta_box' );
 
 
 
+/* THIS CREATES THE METABOX IN ENTRIES TO EDIT CUSTOM FIELDS 
+
+
+	IF YOU'RE LOOKING FOR THE EQUALSPACE CHALLENGE METABOX CODE, THAT'S IN THE EQUALSPACE PLUGIN 
+
+
+*/
 
 
 
 
-add_filter( 'rwmb_meta_boxes', 'challenge_meta_box' );
 
 
 

@@ -38,13 +38,20 @@
 	<a href="<?php echo home_url(); ?>" >
 		<?php
 /*SVG files are included separately so they can be commented out , reordered easily and use variations*/
-			include "sgf-outer-gradient-aqua-01.svg";
-			include "sgf-inner-gradient-aqua-01.svg";
-			include "sgf-ring-white-01.svg";
-			include "sgf-logo-shadow-01.svg";
-			include "sgf-text-gradient-aqua-01.svg";
-			// canvas is where animated globe loads.
-       if(@$_GET['logo-spin']){
+			include "sgf-outer-gradient-aqua-01.svg";//outer blue ring
+			include "sgf-inner-gradient-aqua-01.svg";// inner blue ring
+			include "sgf-ring-white-01.svg";// white BG for center ring
+			
+      
+      if(@$_GET['lang'] == 'es'){// Spanish Version Condition
+       include "sgf-logo-text-es-01.svg";// spanish logo
+      } else {
+        include "sgf-logo-shadow-01.svg";// Shadow for English text
+        include "sgf-text-gradient-aqua-01.svg"; // English Text
+      }
+     
+       if(@$_GET['logo-spin']){ // condition for loading spinnig globe.
+      // canvas tag is where animated globe loads into.
 		?>
 		<canvas id="globe"></canvas>
 		<?php
