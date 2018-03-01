@@ -1,4 +1,4 @@
-var localhost = 'http://sgfstaging.192.168.1.11.xip.io:8895/';//local dev url
+var localhost = 'http://sgfstaging.192.168.1.17.xip.io:8895/';//local dev url
 
 var gulp = require('gulp'),
     sass = require('gulp-ruby-sass'),

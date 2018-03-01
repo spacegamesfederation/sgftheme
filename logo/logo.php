@@ -4,11 +4,14 @@
 	include this page. 
 	Constrain the size of this with a wrapper tag. It will scale.
 */
+  if(@$_GET['logo-spin']){
 ?>
-
-<!--<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/4.2.2/d3.min.js'></script>
 <script src='https://d3js.org/d3-geo.v1.min.js'></script>
-<script src='https://d3js.org/topojson.v2.min.js'></script>-->
+<script src='https://d3js.org/topojson.v2.min.js'></script>
+<?php
+  }
+?>
 <style>
 	#logo-container {
 	    position: relative;
@@ -41,9 +44,11 @@
 			include "sgf-logo-shadow-01.svg";
 			include "sgf-text-gradient-aqua-01.svg";
 			// canvas is where animated globe loads.
+       if(@$_GET['logo-spin']){
 		?>
-		<!--<canvas id="globe"></canvas>-->
+		<canvas id="globe"></canvas>
 		<?php
+  }
 			/*Globe background default incase animated globe canvas doesn't load*/
 			include "sgf-globe-01.svg";
 		?>
@@ -51,8 +56,9 @@
 
 
 </div>
+<?php  if(@$_GET['logo-spin']){?>
 	<script>
-		/*
+		
 	//
 // Creates the spinning globe in the logo.
 //
@@ -174,5 +180,6 @@ loadData(function(world, cList) {
   scale();
   autorotate = d3.timer(rotate);
 })
-*/
+/**/
 	</script>
+<?php } ?>
